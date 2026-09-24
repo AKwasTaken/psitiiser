@@ -1,1 +1,0 @@
-let toggle=document.querySelector("#header .toggle-button"),collapse=document.querySelectorAll("#header .collapse");toggle.addEventListener("click",(function(){collapse.forEach((e=>e.classList.toggle("collapse-toggle")))})),$("#myModal").on("shown.bs.modal",(function(){$("#myInput").trigger("focus")}));

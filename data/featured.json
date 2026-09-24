@@ -1,0 +1,12 @@
+[
+  { "title": "Eureka: Super Kamiokande", "link": "./Blog Page/eureka.html", "tag": "E", "date": "2024-05-20" },
+  { "title": "Musings: the Future of Space Travel", "link": "./Blog Page/spacetravel.html", "tag": "S", "date": "2024-05-05" },
+  { "title": "What is? : Quantum Levitation", "link": "./Blog Page/levitation.html", "tag": "L", "date": "2024-04-18" },
+  { "title": "Curtain Call: Deepak Dhar", "link": "./Blog Page/deepak.html", "tag": "D", "date": "2024-03-30" },
+  { "title": "Review: The Elegant Universe", "link": "./Blog Page/elegant.html", "tag": "R", "date": "2024-03-10" },
+  { "title": "Conceptualise: Handstand", "link": "./Blog Page/handstand.html", "tag": "C", "date": "2024-02-22" },
+  { "title": "Spotlight: W-Boson, The Mass Anomaly", "link": "./Blog Page/wboson.html", "tag": "W", "date": "2024-02-01" },
+  { "title": "Frontier: Mpemba Effect", "link": "./Blog Page/mpemba.html", "tag": "M", "date": "2024-01-15" },
+  { "title": "The Phenomenon of Quantum Tunneling and How It's Used in Scanning Tunneling Microscopy", "link": "./Blog Page/qmtnling_stm.html", "tag": "Q", "date": "2023-12-20" },
+  { "title": "From the Holographic Principle to ADS/CFT", "link": "./Blog Page/holograph_cft.html", "tag": "H", "date": "2023-12-01" }
+]

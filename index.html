@@ -1,346 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSIT</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>PSI(T) — Physics Society, IISER TVM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <canvas id="bgfield"></canvas>
+    <div class="page">
+      <header>
+        <nav class="navbar">
+          <a href="#top" class="brand" aria-label="PSI(T) Home">
+            <span class="brand-logo-mark" aria-hidden="true"></span>
+          </a>
 
-    <!-- font awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <button
+            class="navtoggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            &#9776;
+          </button>
+          <ul class="navlinks" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <!-- styl.css -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- custom javascript main.js file -->
-
-    <script src="./js folder/three.min.js"></script>
-    <script src="./js folder/staranimation.js" class="js-prop"></script>
-
-
-
-    <main id="site-main">
-        <!-- Header   -->
-        <header id="header" class ="shadow bg-transparent">
-            <nav class="container navbar">
-              <a href="./index.html"><img src="./Images/psit_sqr_white.png" width="120" height="120"></a>
-
-                <button class="toggle-button">
-                    <span>
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </button>
-
-                <!-- collapse on toggle button click -->
-                <div class="collapse">
-                    <ul class="navbar-nav">
-                        <a href="./index.html" class="nav-link">Home</a>
-                        <a href="./Team Page/index_team.html" class="nav-link">Meet The Team</a>
-                        <a href="./Blog Page/index_blog.html" class="nav-link">Blog</a>
-                        <a href="./Events Page/index_events.html" class="nav-link">Events</a>
-                        <a href="./Resources/index_resources.html" class="nav-link">Resources</a>
-                        <!-- <a href="./Merch/in.html" class="nav-link">Merchandise</a> -->
-
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- Header End-->
-
-        <script src="./js folder/main.js"></script>
-
-        <section class="about-us">
-            <header class="about-us__intro">
-                <h2 class="section-title">What is <a href="./background/background.html" style="font-family:Cardo;color:white">Ψ(t)</a>?</h2>
-            </header>
-            <div class="about-us__body">
-                <p>The Physics Society of IISER Thiruvananthapuram - PSI(T) has been an open organization under the guidance of the School of Physics with the primary objective of promoting Physics among students across all levels.<br>
-                  </p><p>It aims to serve as a friendly platform that promotes conceptually intriguing and thought-provoking discussions to facilitate learning and coursework.
-                </p>
+      <main id="top">
+        <section class="hero wash-hero">
+          <canvas id="wave"></canvas>
+          <div class="hero-inner">
+            <!-- Full Center Logo Lockup (SVG Masks: Gold Half + White Long) -->
+            <div
+              class="hero-brand-lockup"
+              aria-label="Physics Society of IISER Thiruvananthapuram"
+            >
+              <span class="hero-logo-psi" aria-hidden="true"></span>
+              <span class="hero-logo-text" aria-hidden="true"></span>
             </div>
-            <div class="btn-group">
-                <a href="./Aboutus/aboutus.html" class="btn btn-primary hover-border"><span>About Us</span></a>
-                <a href="./Aboutus/contactus.html" class="btn btn-primary hover-border"><span>Contact Us</span></a>
+
+            <p class="lead">
+              An open organization under the guidance of the School of Physics
+              with the primary objective of promoting Physics among students
+              across all levels. It aims to serve as a friendly platform that
+              promotes conceptually intriguing and thought-provoking discussions
+              to facilitate learning and coursework.
+            </p>
+
+            <div class="hero-cta">
+              <a href="#events" class="btn btn-primary">See upcoming events</a>
+              <a href="#about" class="btn btn-secondary">About us</a>
             </div>
+          </div>
         </section>
 
-        <!-- Events -->
-        <script defer src="./js folder/modal.js"></script>
-        <section class="events-showcase">
-            <header>
-                <h2 class="section-title"> Recent Events</h2>
-            </header>
-            <div class="event-video-wrapper">
-        <video
-            class="event-video"
-            controls
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="https://i.ibb.co/5xt0FJwq/1.jpg">
-            <source src="fw_2026.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <svg class="divider" viewBox="0 0 1080 28" preserveAspectRatio="none">
+          <path
+            d="M0,14 Q90,4 180,14 T360,14 T540,15 T720,13 T900,14 T1080,14"
+          />
+        </svg>
+
+        <section id="about" class="wash-plum">
+          <div class="container about-grid">
+            <div>
+              <div class="section-head">
+                <span class="tag-row">
+                  <svg
+                    class="mini-atom"
+                    viewBox="0 0 40 40"
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <circle cx="20" cy="20" r="2" fill="currentColor" />
+                    <g class="ring">
+                      <ellipse
+                        cx="20"
+                        cy="20"
+                        rx="16"
+                        ry="6"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.2"
+                      />
+                      <circle cx="36" cy="20" r="2" fill="currentColor" />
+                    </g>
+                    <g class="ring" transform="rotate(70 20 20)">
+                      <ellipse
+                        cx="20"
+                        cy="20"
+                        rx="16"
+                        ry="6"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.2"
+                      />
+                      <circle cx="36" cy="20" r="2" fill="currentColor" />
+                    </g>
+                  </svg>
+                  <span class="tag">who we are</span>
+                </span>
+                <h2>What PSI(T) is</h2>
+              </div>
+              <p>
+                The Physics Society of IISER Thiruvananthapuram has been an open
+                organization under the guidance of the School of Physics, with
+                the primary objective of promoting physics among students across
+                all levels.
+              </p>
+              <p>
+                It aims to serve as a friendly platform that promotes
+                conceptually intriguing, thought-provoking discussion — the kind
+                that makes coursework click and curiosity easier to follow
+                through on.
+              </p>
+              <div class="about-links">
+                <a href="./Aboutus/aboutus.html" class="btn btn-secondary"
+                  >Our Team</a
+                >
+                <a href="./Aboutus/contactus.html" class="btn btn-secondary"
+                  >Contact Us</a
+                >
+              </div>
+            </div>
+            <div
+              class="orbit-figure"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 420px;
+                aspect-ratio: 2 / 1;
+                margin: 0 auto;
+              "
+            >
+              <canvas
+                id="doubleslit"
+                style="width: 100%; height: 100%; display: block"
+              ></canvas>
+            </div>
+          </div>
+        </section>
+
+        <svg class="divider" viewBox="0 0 1080 28" preserveAspectRatio="none">
+          <path
+            d="M0,15 Q90,5 180,15 T360,13 T540,16 T720,14 T900,15 T1080,14"
+          />
+        </svg>
+
+        <section id="events" class="wash-amber">
+          <div class="container">
+            <div class="section-head">
+              <span class="tag-row">
+                <svg
+                  class="mini-atom"
+                  viewBox="0 0 40 40"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <circle cx="20" cy="20" r="2" fill="currentColor" />
+                  <g class="ring">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      rx="16"
+                      ry="6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                    <circle cx="36" cy="20" r="2" fill="currentColor" />
+                  </g>
+                  <g class="ring" transform="rotate(70 20 20)">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      rx="16"
+                      ry="6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                    <circle cx="36" cy="20" r="2" fill="currentColor" />
+                  </g>
+                </svg>
+                <span class="tag">activity log</span>
+              </span>
+              <h2>Recent events</h2>
+              <p>
+                A running log of talks, discussions and screenings from the past
+                semesters.
+              </p>
+            </div>
+            <div class="event-grid" id="eventsContainer"></div>
+
+            <div class="video-wrap">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="https://i.ibb.co/5xt0FJwq/1.jpg"
+              >
+                <source src="fw_2026.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </section>
+
+        <svg class="divider" viewBox="0 0 1080 28" preserveAspectRatio="none">
+          <path
+            d="M0,14 Q90,6 180,14 T360,15 T540,13 T720,15 T900,14 T1080,14"
+          />
+        </svg>
+
+        <section class="wash-teal">
+          <div class="container">
+            <div class="section-head">
+              <span class="tag-row">
+                <svg
+                  class="mini-atom"
+                  viewBox="0 0 40 40"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <circle cx="20" cy="20" r="2" fill="currentColor" />
+                  <g class="ring">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      rx="16"
+                      ry="6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                    <circle cx="36" cy="20" r="2" fill="currentColor" />
+                  </g>
+                  <g class="ring" transform="rotate(70 20 20)">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      rx="16"
+                      ry="6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                    <circle cx="36" cy="20" r="2" fill="currentColor" />
+                  </g>
+                </svg>
+                <span class="tag">live feed</span>
+              </span>
+              <h2>Updates</h2>
+              <!-- <p>Visit our Instagram page for more updates.</p> -->
+            </div>
+            <div class="updates-note">API not connected yet.</div>
+          </div>
+        </section>
+
+        <svg class="divider" viewBox="0 0 1080 28" preserveAspectRatio="none">
+          <path
+            d="M0,15 Q90,6 180,15 T360,13 T540,16 T720,14 T900,15 T1080,14"
+          />
+        </svg>
+
+        <section id="blog" class="wash-plum">
+          <div class="container">
+            <div class="section-head">
+              <span class="tag-row">
+                <svg
+                  class="mini-atom"
+                  viewBox="0 0 40 40"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <circle cx="20" cy="20" r="2" fill="currentColor" />
+                  <g class="ring">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      rx="16"
+                      ry="6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                    <circle cx="36" cy="20" r="2" fill="currentColor" />
+                  </g>
+                  <g class="ring" transform="rotate(70 20 20)">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      rx="16"
+                      ry="6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.2"
+                    />
+                    <circle cx="36" cy="20" r="2" fill="currentColor" />
+                  </g>
+                </svg>
+                <span class="tag">more from us</span>
+              </span>
+              <h2>Explore</h2>
+              <!-- <p>
+                Three posts, picked at random from the archive on every visit.
+              </p> -->
+            </div>
+            <div class="blog-grid" id="exploreContainer"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="resources">
+        <div class="container footer-grid">
+          <div>
+            <h4>Featured posts</h4>
+            <div id="featuredContainer"></div>
+          </div>
+          <div>
+            <h4>Other links</h4>
+            <a href="https://physics.iisertvm.ac.in/" target="_blank"
+              >School of Physics</a
+            >
+            <a href="http://www.iisertvm.ac.in/" target="_blank"
+              >IISER Thiruvananthapuram</a
+            >
+            <a href="./Team Page/index_team.html">Meet the Team</a>
+            <a href="./Events Page/index_events.html">All Events</a>
+          </div>
+          <div>
+            <h4>Get in touch</h4>
+            <p>psit@iisertvm.ac.in</p>
+            <div class="socials">
+              <a
+                href="https://www.instagram.com/psitiiser/"
+                aria-label="Instagram"
+                >&#8226;</a
+              >
+              <a href="https://m.facebook.com/psitiiser" aria-label="Facebook"
+                >&#8226;</a
+              >
+              <a
+                href="https://www.youtube.com/c/psitiiser/featured"
+                aria-label="YouTube"
+                >&#8226;</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="foot-bottom container">
+          Physics Society of IISER Thiruvananthapuram &mdash; PSI(T)
+        </div>
+      </footer>
     </div>
-            <script src="event-video.js"></script>
 
-            <div class="blog-container">
-
-                <!-- Event 1 -->
-
-                <div class="blog-box">
-                    <div class="blog-text">
-                        <span>1st Sep 2022</span>
-                        <a href="#" class="blog-title">Elective Talk Series</a>
-                        <p>PSI(T) launched its brand new talk series on electives, on the 1st of September, with the topic in discussion being Quantum Field Theory presented by Sharang R. Iyer, a fifth year BS-MS Student.
-                        </p>
-                        <a href="#" data-modal-target="#modal1" class="btn btn-primary hover-border"><span>Read More</span></a>
-                    </div>
-                </div>
-
-                <!-- Event 2 -->
-
-                <div class="blog-box">
-                    <div class="blog-text">
-                        <span>20th August 2022</span>
-                        <a href="#" class="blog-title">Peer Discussion</a>
-                        <p>It is evident that whenever quantum physicists give an object or phenomena the title of “quantum”,
-                          chances are that it serves as a window into a mysterious world of unseen possibilities and challenges alike. And so, in line with that thought, the topic of discussion is related to quantum computing, particularly spin qubits.
-
-                        </p>
-                        <a href="#" data-modal-target="#modal2" class="btn btn-primary hover-border"><span>Read More</span></a>
-                        <div id="overlay"></div>
-                    </div>
-                </div>
-
-                <!-- Event 3 -->
-
-                <div class="blog-box">
-                    <div class="blog-text">
-                        <span>13th August 2022</span>
-                        <a href="#" class="blog-title">Movie Screening</a>
-                        <p>We are delighted to inform you that the Physics Society of IISER TVM (PSIT) will be starting off this semester’s activities by our monthly screenings with yet another high rated all time sci-fi classic.
-                        </p>
-                        <a href="#" data-modal-target="#modal3" class="btn btn-primary hover-border"><span>Read More</span></a>
-                        <div id="overlay"></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-        <section class="updates-showcase">
-            <header>
-                <h2 class="section-title">Updates</h2>
-            </header>
-        <center>
-    <script src="https://embedsocial.com/js/iframe.js"></script>
-    <iframe style="border: 0; width: 65%; height: 300px;" scrolling="no" 
-        src="https://embedsocial.com/api/pro_hashtag/3f187510ffe47e19080dc279c7cae4867d368279">
-    </iframe>
-    <script>iFrameResize();</script>
-</center>
-        </section>
-    
-        <section class="blogs-showcase">
-            <header>
-                <h2 class="section-title">Explore</h2>
-            </header>
-            <div class="blog-container" id="explore-blog-container">
-                </div>
-        </section>
-
-        <footer id="footer">
-            <div class="container">
-              <div class="row mb-3">
-
-                    <div class="col-3">
-                        <h3 class="footer-title secondary-title">Featured Posts</h3>
-
-                        <div class="feature-post py-1" id="featured-posts-container">
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                      <h3 class="footer-title secondary-title">Other Links</h3>
-                        <div class ="secondary-title text-light mb-1">
-                          <div class="mt-2">
-                            <a target="_blank" class="footer-link text-light" href="https://physics.iisertvm.ac.in/">School of Physics</a><br>
-                            <a target="_blank" class="footer-link text-light" href="http://www.iisertvm.ac.in/">IISER Thiruvananthapuram</a><br>
-                          </div>
-
-                                <!-- <address class="mt-2">
-                                    <i class="fas fa-map-marker-alt text-secondary"></i>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </address> -->
-
-                                <!-- <div class="phone">
-                                    <i class="fas fa-mobile text-secondary"></i>
-                                    123-456-7890
-                                </div> -->
-
-                         <div class="email">
-                           <i class="fas fa-envelope text-secondary"></i>
-                              psit@iisertvm.ac.in
-                              <div class="collapse">
-                                <ul class="navbar-nav">
-                                <div class="insta-icon">
-                                  <a href="https://www.instagram.com/psitiiser/" class="nav-link"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                  <a href="https://m.facebook.com/psitiiser" class="nav-link"><i class="fab fa-facebook"></i></a>
-                                  <a href="https://www.youtube.com/c/psitiiser/featured" class="nav-link"><i class="fab fa-youtube"></i></a>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-
-    </main>
-    <script>
-        // Array of blog posts (NOW INCLUDED)
-        const blogPosts = [
-            {
-                "title": "From the Holographic Principle to ADS/CFT",
-                "imageUrl": "./Blog Page/holocft1.png",
-                "link": "./Blog Page/holograph_cft.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "The Phenomenon of Quantum Tunneling and How It's Used in Scanning Tunneling Microscopy",
-                "imageUrl": "./Blog Page/qtnling1.jpg",
-                "link": "./Blog Page/qmtnling_stm.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Frontier: Mpemba Effect",
-                "imageUrl": "./Blog Page/b0b2c5f14ca5de02d038.jpeg",
-                "link": "./Blog Page/mpemba.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Spotlight: W-Boson, The Mass Anomaly",
-                "imageUrl": "./Blog Page/4db3aaa641795bafafea.jpeg",
-                "link": "./Blog Page/wboson.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Conceptualise: Handstand",
-                "imageUrl": "./Blog Page/3d360fdc09d9feef7bec.jpeg",
-                "link": "./Blog Page/handstand.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Review: The Elegant Universe",
-                "imageUrl": "./Blog Page/67c79ceb0deb5d44bb32.jpeg",
-                "link": "./Blog Page/elegant.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Curtain Call: Deepak Dhar",
-                "imageUrl": "./Blog Page/d039354923097ba72254.jpeg",
-                "link": "./Blog Page/deepak.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "What is? : Quantum Levitation",
-                "imageUrl": "./Blog Page/269ae617c0c30b4ee0a0.jpeg",
-                "link": "./Blog Page/levitation.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Musings: the Future of Space Travel",
-                "imageUrl": "./Blog Page/a38cfb9ff07cfe120d15.jpeg",
-                "link": "./Blog Page/spacetravel.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            },
-            {
-                "title": "Eureka: Super Kamiokande",
-                "imageUrl": "./Blog Page/8d00848ec0f8cdd38689.jpeg",
-                "link": "./Blog Page/eureka.html",
-                "excerpt": "" // Add excerpt if you have one for this post
-            }
-        ];
-    
-        // Function to get 'num' random elements from an array without repetition
-        function getRandomBlogs(allBlogs, num) {
-            const shuffled = [...allBlogs].sort(() => 0.5 - Math.random()); // Shuffle the array
-            return shuffled.slice(0, num); // Return the first 'num' elements
-        }
-    
-        // Function to create the HTML for a single blog post
-        function createBlogElement(blogData) {
-            const blogBox = document.createElement('div');
-            blogBox.classList.add('blog-box2');
-    
-            blogBox.innerHTML = `
-                <div class="blog-img">
-                    <img src="${blogData.imageUrl}" alt="Blog">
-                </div>
-                <div class="blog-text">
-                    
-                    <a href="${blogData.link}" class="blog-title">${blogData.title}</a>
-                    <p>${blogData.excerpt}</p>
-                    <a href="${blogData.link}" class="btn btn-primary hover-border"><span>Read More</span></a>
-                </div>
-            `;
-    
-            return blogBox;
-        }
-    
-        // Function to update the Explore section with new blog posts
-        function updateExploreSection(blogs) {
-            const container = document.getElementById('explore-blog-container');
-            container.innerHTML = ''; // Clear existing content
-    
-            blogs.forEach(blog => {
-                const blogElement = createBlogElement(blog);
-                container.appendChild(blogElement);
-            });
-        }
-    
-        // When the page loads, select and display 3 random blog posts
-        window.addEventListener('load', () => {
-            const randomBlogs = getRandomBlogs(blogPosts, 3);
-            updateExploreSection(randomBlogs);
-        });
-
-                 // Function to display featured posts in the footer
-                 function displayFeaturedPosts() {
-             const featuredPostsContainer = document.getElementById('featured-posts-container');
-             const randomPosts = getRandomBlogs(blogPosts, 3);
-
-             randomPosts.forEach(post => {
-                 const postElement = document.createElement('div');
-                 postElement.classList.add('flex-item');
-
-                 postElement.innerHTML = `
-                     <article class="article">
-                         <div class="d-flex">
-                             <a href="${post.link}">
-                                 <img src="${post.imageUrl}" class="object-fit" alt="">
-                                 <div class="px-1 mt-1">
-                                     <a href="${post.link}" class="text-title display-2 text-light">${post.title}</a>
-                                     <p class="secondary-title text-secondary display-3"></p>
-                                 </div>
-                             </a>
-                         </div>
-                     </article>
-                 `;
-
-                 featuredPostsContainer.appendChild(postElement);
-             });
-         }
-
-         // Call the function to display featured posts in the footer
-         displayFeaturedPosts();
-
-    </script>
-</body>
+    <script src="js/animated.js"></script>
+  </body>
 </html>

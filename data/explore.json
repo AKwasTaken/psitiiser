@@ -1,0 +1,12 @@
+[
+  { "title": "From the Holographic Principle to ADS/CFT", "link": "./Blog Page/holograph_cft.html", "tag": "H", "thumb": "t1" },
+  { "title": "The Phenomenon of Quantum Tunneling and How It's Used in Scanning Tunneling Microscopy", "link": "./Blog Page/qmtnling_stm.html", "tag": "Q", "thumb": "t2" },
+  { "title": "Frontier: Mpemba Effect", "link": "./Blog Page/mpemba.html", "tag": "M", "thumb": "t3" },
+  { "title": "Spotlight: W-Boson, The Mass Anomaly", "link": "./Blog Page/wboson.html", "tag": "W", "thumb": "t1" },
+  { "title": "Conceptualise: Handstand", "link": "./Blog Page/handstand.html", "tag": "C", "thumb": "t2" },
+  { "title": "Review: The Elegant Universe", "link": "./Blog Page/elegant.html", "tag": "R", "thumb": "t3" },
+  { "title": "Curtain Call: Deepak Dhar", "link": "./Blog Page/deepak.html", "tag": "D", "thumb": "t1" },
+  { "title": "What is? : Quantum Levitation", "link": "./Blog Page/levitation.html", "tag": "L", "thumb": "t2" },
+  { "title": "Musings: the Future of Space Travel", "link": "./Blog Page/spacetravel.html", "tag": "S", "thumb": "t3" },
+  { "title": "Eureka: Super Kamiokande", "link": "./Blog Page/eureka.html", "tag": "E", "thumb": "t1" }
+]
