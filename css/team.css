@@ -59,7 +59,7 @@ section {
 
 .section-head h2 {
   font-size: 2.1rem;
-  margin-top: 6px;
+  /* margin-top: 6px; */
   font-weight: var(--fw-medium, 500);
 }
 
@@ -123,31 +123,38 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 24px 20px;
-  max-width: 1120px;
+  gap: 32px 40px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-
 .member-card {
-  flex: 0 1 calc((100% - (6 * 20px)) / 7);
-  min-width: 130px;
-  max-width: 155px;
+  flex: 0 1 calc((100% - (4 * 28px)) / 6);
+  min-width: 160px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .avatar-wrap {
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
   background: rgba(239, 231, 214, 0.03);
+  margin-bottom: 14px;
+}
+
+.sop-staff {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .avatar-wrap img {
@@ -162,12 +169,12 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   width: 100%;
 }
 
 .member-meta .name {
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   font-weight: var(--fw-medium, 500);
   font-style: italic;
   color: var(--chalk);
@@ -178,20 +185,18 @@ section {
 .member-meta .role {
   font-family: var(--font-accent);
   color: var(--amber-soft);
-  font-size: 1.05rem;
-  line-height: 1.2;
+  font-size: 1rem;
   transform: rotate(-1.5deg);
   display: inline-block;
-  margin-top: 2px;
+  margin-top: -2px;
 }
 
 .member-meta .batch {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.6rem;
   color: var(--chalk-dim);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-top: 1px;
 }
 
 /* ==========================================================================
@@ -200,7 +205,9 @@ section {
 
 @media (max-width: 1080px) {
   .member-card {
-    flex: 0 1 calc((100% - (4 * 20px)) / 5);
+    /* 4 per row */
+    flex: 0 1 calc((100% - (3 * 24px)) / 4);
+    max-width: 195px;
   }
 }
 
@@ -209,37 +216,31 @@ section {
     padding: 12vh 20px 6vh;
   }
   
+  .team-roster {
+    gap: 28px 20px;
+  }
+
   .member-card {
-    flex: 0 1 calc((100% - (3 * 16px)) / 4); 
-    min-width: 120px;
-    gap: 16px;
+    /* 3 per row */
+    flex: 0 1 calc((100% - (2 * 20px)) / 3); 
+    min-width: 145px;
+    max-width: 185px;
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 540px) {
   .team-roster {
-    gap: 20px 14px;
+    gap: 24px 16px;
   }
 
   .member-card {
-    flex: 0 1 calc((100% - (1 * 14px)) / 2);
-    max-width: 180px;
+    /* 2 per row */
+    flex: 0 1 calc((100% - 16px) / 2);
+    min-width: 140px;
+    max-width: 200px;
   }
 
   .section-head h2 {
     font-size: 1.8rem;
-  }
-}
-
-/* ==========================================================================
-   Accessibility / Reduced Motion
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .avatar-wrap {
-    transition: none;
-  }
-  .member-card:hover .avatar-wrap {
-    transform: none;
   }
 }
