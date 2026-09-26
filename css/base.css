@@ -181,6 +181,20 @@ header {
   font-size: 1.25rem;
 }
 
+.brand-logo-mark {
+  display: block;
+  width: 48px;
+  height: 30px;
+  background-color: var(--chalk);
+  -webkit-mask: url("../assets/identity/half_psit_logo.svg") no-repeat center / contain;
+  mask: url("../assets/identity/half_psit_logo.svg") no-repeat center / contain;
+  transition: background-color 0.2s ease;
+}
+
+.brand:hover .brand-logo-mark {
+  background-color: var(--amber);
+}
+
 .brand .psi {
   color: var(--amber);
   font-style: italic;
@@ -217,7 +231,156 @@ header {
   font-size: 1.8rem;
 }
 
+
+/* Footer Section */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 64px 0 40px;
+  background: #0e1112;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-grid h4 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--fw-medium, 500);
+  font-size: 1.05rem;
+  color: var(--amber-soft);
+  margin-bottom: 16px;
+}
+
+.footer-grid p,
+.footer-grid a {
+  font-family: var(--font-body);
+  color: var(--chalk-dim);
+  font-size: 0.94rem;
+}
+
+.footer-grid a {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-grid a:hover {
+  color: var(--chalk);
+}
+
+.foot-post {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.foot-post .stub {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  background: rgba(239, 231, 214, 0.04);
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--chalk-faint);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+.foot-post span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--chalk-dim);
+  line-height: 1.4;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  transition: transform 0.2s ease;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+}
+
+/* Icon glyph masking */
+.socials a .social-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--chalk-dim);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  transition: background-color 0.2s ease;
+}
+
+.socials a:hover .social-icon {
+  background-color: var(--amber-soft);
+}
+
+/* Specific SVG masks */
+.socials a .icon-instagram {
+  -webkit-mask-image: url("/assets/icons/instagram.svg");
+  mask-image: url("/assets/icons/instagram.svg");
+}
+
+.socials a .icon-facebook {
+  -webkit-mask-image: url("/assets/icons/facebook.svg");
+  mask-image: url("/assets/icons/facebook.svg");
+}
+
+.socials a .icon-youtube {
+  -webkit-mask-image: url("/assets/icons/youtube.svg");
+  mask-image: url("/assets/icons/youtube.svg");
+}
+
+.socials a .icon-email {
+  -webkit-mask-image: url("/assets/icons/gmail.svg");
+  mask-image: url("/assets/icons/gmail.svg");
+}
+
+
+.foot-bottom {
+  max-width: 1080px;
+  margin: 48px auto 0;
+  padding: 20px 24px 0;
+  border-top: 1px solid var(--line);
+  color: var(--chalk-faint);
+  font-size: 0.84rem;
+  font-family: var(--font-body);
+}
+
+
+
+
+
 @media (max-width: 760px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .navlinks {
     display: none;
     position: absolute;
