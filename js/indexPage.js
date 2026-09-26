@@ -4,8 +4,15 @@ import { initWaveHero } from "./animations/waveHero.js";
 import { initDiffraction } from "./animations/diffractionSlit.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  initHomeContent();
   initAmbientField();
   initWaveHero();
   initDiffraction();
+
+  if (document.getElementById("featuredContainer")) {
+    initHomeContent();
+  } else {
+    window.addEventListener("footerLoaded", () => {
+      initHomeContent();
+    }, { once: true });
+  }
 });

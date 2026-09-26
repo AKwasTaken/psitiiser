@@ -34,23 +34,6 @@
     </div>
   </div>
   <div class="foot-bottom container">
-    Physics Society of IISER Thiruvananthapuram &mdash; PSI(T)
+    Physics Society of IISER Thiruvananthapuram - PSI(T)
   </div>
-
-  <script>
-    export function renderFeatured(posts) {
-      const c = document.getElementById("featuredContainer");
-      if (!c) return;
-      c.innerHTML = "";
-      const latest = [...posts]
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 3);
-      latest.forEach((p) => {
-        const el = document.createElement("div");
-        el.className = "foot-post";
-        el.innerHTML = `<div class="stub">${p.tag || "•"}</div><span><a href="${p.link}">${p.title}</a></span>`;
-        c.appendChild(el);
-      });
-    }
-  </script>
 </footer>

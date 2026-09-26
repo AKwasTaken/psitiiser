@@ -2,7 +2,9 @@ async function loadComponent(elementId, filePath, callback) {
   try {
     const response = await fetch(filePath);
     if (!response.ok) {
-      throw new Error(`Failed to load ${filePath} (Status: ${response.status})`);
+      throw new Error(
+        `Failed to load ${filePath} (Status: ${response.status})`,
+      );
     }
     const html = await response.text();
     const container = document.getElementById(elementId);
@@ -22,7 +24,9 @@ function setupMobileNav() {
   const navLinks = document.getElementById("navLinks");
 
   if (!toggleBtn || !navLinks) {
-    console.warn("Mobile nav elements (#navToggle or #navLinks) missing from loaded template.");
+    console.warn(
+      "Mobile nav elements (#navToggle or #navLinks) missing from loaded template.",
+    );
     return;
   }
 
@@ -41,7 +45,8 @@ function setupMobileNav() {
     const isClickOnToggle = toggleBtn.contains(event.target);
 
     if (
-      (navLinks.classList.contains("open") || navLinks.classList.contains("is-open")) &&
+      (navLinks.classList.contains("open") ||
+        navLinks.classList.contains("is-open")) &&
       !isClickInsideMenu &&
       !isClickOnToggle
     ) {
@@ -53,5 +58,8 @@ function setupMobileNav() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadComponent("site-header", "assets/templates/header.html", setupMobileNav);
-  loadComponent("site-footer", "assets/templates/footer.html");
+
+  loadComponent("site-footer", "assets/templates/footer.html", () => {
+    window.dispatchEvent(new CustomEvent("footerLoaded"));
+  });
 });
