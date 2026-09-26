@@ -1,0 +1,56 @@
+<footer id="resources">
+  <div class="container footer-grid">
+    <div>
+      <h4>Featured posts</h4>
+      <div id="featuredContainer"></div>
+    </div>
+    <div>
+      <h4>Other links</h4>
+      <a href="https://physics.iisertvm.ac.in/" target="_blank"
+        >School of Physics</a
+      >
+      <a href="http://www.iisertvm.ac.in/" target="_blank"
+        >IISER Thiruvananthapuram</a
+      >
+      <a href="./Team Page/index_team.html">Meet the Team</a>
+      <a href="./Events Page/index_events.html">All Events</a>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <p>psit@iisertvm.ac.in</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/psitiiser/" aria-label="Instagram"
+          >&#8226;</a
+        >
+        <a href="https://m.facebook.com/psitiiser" aria-label="Facebook"
+          >&#8226;</a
+        >
+        <a
+          href="https://www.youtube.com/c/psitiiser/featured"
+          aria-label="YouTube"
+          >&#8226;</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom container">
+    Physics Society of IISER Thiruvananthapuram &mdash; PSI(T)
+  </div>
+
+  <script>
+    export function renderFeatured(posts) {
+      const c = document.getElementById("featuredContainer");
+      if (!c) return;
+      c.innerHTML = "";
+      const latest = [...posts]
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3);
+      latest.forEach((p) => {
+        const el = document.createElement("div");
+        el.className = "foot-post";
+        el.innerHTML = `<div class="stub">${p.tag || "•"}</div><span><a href="${p.link}">${p.title}</a></span>`;
+        c.appendChild(el);
+      });
+    }
+  </script>
+</footer>

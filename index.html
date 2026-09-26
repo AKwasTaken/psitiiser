@@ -10,39 +10,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/index.css" />
+
+    <script src="js/headerfooter.js" defer></script>
+    <script type="module" src="js/indexPage.js"></script>
   </head>
   <body>
     <canvas id="bgfield"></canvas>
     <div class="page">
-      <header>
-        <nav class="navbar">
-          <a href="#top" class="brand" aria-label="PSI(T) Home">
-            <span class="brand-logo-mark" aria-hidden="true"></span>
-          </a>
-
-          <button
-            class="navtoggle"
-            id="navToggle"
-            aria-label="Toggle menu"
-            aria-expanded="false"
-          >
-            &#9776;
-          </button>
-          <ul class="navlinks" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#resources">Resources</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div id="site-header"></div>
 
       <main id="top">
         <section class="hero wash-hero">
           <canvas id="wave"></canvas>
           <div class="hero-inner">
-            <!-- Full Center Logo Lockup (SVG Masks: Gold Half + White Long) -->
             <div
               class="hero-brand-lockup"
               aria-label="Physics Society of IISER Thiruvananthapuram"
@@ -215,9 +195,12 @@
                 loop
                 playsinline
                 preload="metadata"
-                poster="https://i.ibb.co/5xt0FJwq/1.jpg"
+                poster="assets/img/foundationWeekThumbnail.jpg"
               >
-                <source src="fw_2026.mp4" type="video/mp4" />
+                <source
+                  src="https://raw.githubusercontent.com/psitiiser/Hosting/refs/heads/main/fw_2026.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -270,9 +253,20 @@
                 <span class="tag">live feed</span>
               </span>
               <h2>Updates</h2>
-              <!-- <p>Visit our Instagram page for more updates.</p> -->
             </div>
-            <div class="updates-note">API not connected yet.</div>
+            <div class="embed-wrapper">
+              <iframe
+                id="embedFeed"
+                src="https://embedsocial.com/api/pro_hashtag/3f187510ffe47e19080dc279c7cae4867d368279"
+                scrolling="no"
+                frameborder="0"
+                style="width: 100%; border: 0"
+              ></iframe>
+              <script src="https://embedsocial.com/js/iframe.js"></script>
+              <script>
+                iFrameResize({ checkOrigin: false }, "#embedFeed");
+              </script>
+            </div>
           </div>
         </section>
 
@@ -322,58 +316,13 @@
                 <span class="tag">more from us</span>
               </span>
               <h2>Explore</h2>
-              <!-- <p>
-                Three posts, picked at random from the archive on every visit.
-              </p> -->
             </div>
             <div class="blog-grid" id="exploreContainer"></div>
           </div>
         </section>
       </main>
 
-      <footer id="resources">
-        <div class="container footer-grid">
-          <div>
-            <h4>Featured posts</h4>
-            <div id="featuredContainer"></div>
-          </div>
-          <div>
-            <h4>Other links</h4>
-            <a href="https://physics.iisertvm.ac.in/" target="_blank"
-              >School of Physics</a
-            >
-            <a href="http://www.iisertvm.ac.in/" target="_blank"
-              >IISER Thiruvananthapuram</a
-            >
-            <a href="./Team Page/index_team.html">Meet the Team</a>
-            <a href="./Events Page/index_events.html">All Events</a>
-          </div>
-          <div>
-            <h4>Get in touch</h4>
-            <p>psit@iisertvm.ac.in</p>
-            <div class="socials">
-              <a
-                href="https://www.instagram.com/psitiiser/"
-                aria-label="Instagram"
-                >&#8226;</a
-              >
-              <a href="https://m.facebook.com/psitiiser" aria-label="Facebook"
-                >&#8226;</a
-              >
-              <a
-                href="https://www.youtube.com/c/psitiiser/featured"
-                aria-label="YouTube"
-                >&#8226;</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="foot-bottom container">
-          Physics Society of IISER Thiruvananthapuram &mdash; PSI(T)
-        </div>
-      </footer>
+      <div id="site-footer"></div>
     </div>
-
-    <script src="js/animated.js"></script>
   </body>
 </html>
