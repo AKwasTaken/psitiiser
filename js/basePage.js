@@ -2,9 +2,11 @@ import { initHomeContent } from "./content.js";
 import { initAmbientField } from "./animations/ambientField.js";
 // import { initWaveHero } from "./animations/waveHero.js";
 // import { initDiffraction } from "./animations/diffractionSlit.js";
+import { initPreloader } from "./animations/preloader.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   initAmbientField();
+  initPreloader();
 
   if (document.getElementById("featuredContainer")) {
     initHomeContent();
