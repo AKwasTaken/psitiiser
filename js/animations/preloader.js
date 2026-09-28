@@ -86,7 +86,7 @@ export function initPreloader({
 
   let angle = 0;
   let floatTick = 0;
-  const rotSpeedPerSec = 1.32;
+  const rotSpeedPerSec = 3;
   let lastTime = performance.now();
 
   function frame(now) {
@@ -101,7 +101,7 @@ export function initPreloader({
     }
 
     const cx = w / 2;
-    const floatY = reduce ? 0 : Math.sin(floatTick * 0.05) * 3;
+    const floatY = reduce ? 0 : Math.sin(floatTick * 0.1) * 3;
     const cy = h / 2 + floatY;
 
     ctx.clearRect(0, 0, w, h);
