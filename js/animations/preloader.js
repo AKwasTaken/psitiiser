@@ -16,10 +16,14 @@ export function initPreloader({
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const start = performance.now();
   let stopped = false;
+  let rafId = null;
 
   function hide() {
     if (stopped) return;
     stopped = true;
+    if (rafId) cancelAnimationFrame(rafId);
+    window.removeEventListener('resize', applySize);
+
     overlay.classList.add('is-hidden');
     document.body.classList.remove('preloading');
     setTimeout(() => overlay.remove(), fadeDuration);
@@ -34,15 +38,16 @@ export function initPreloader({
   }
 
   if (!canvas) { finish(); return; }
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { alpha: true });
   if (!ctx) { finish(); return; }
 
   const dotRgb = '221, 197, 164';
 
-  let w, h, dpr, scale;
+  let w = 0, h = 0, dpr = 1, scale = 1;
   const R1 = 0.4;
   const R2 = 1.5;
   const maxExtent = R1 + R2;
+  const invDiameter = 1 / (2 * maxExtent);
 
   function applySize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -53,7 +58,7 @@ export function initPreloader({
     canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    scale = (Math.min(w, h) / (2 * maxExtent)) * 0.38;
+    scale = (Math.min(w, h) * invDiameter) * 0.38;
   }
 
   const ringCount = 18;
@@ -74,14 +79,27 @@ export function initPreloader({
     }
   }
 
+  const rendered = points.map(() => ({ x1: 0, y1: 0, z1: 0 }));
+
   applySize();
   window.addEventListener('resize', applySize);
 
   let angle = 0;
   let floatTick = 0;
-  const speed = reduce ? 0 : 0.022;
+  const rotSpeedPerSec = 1.32;
+  let lastTime = performance.now();
 
-  function frame() {
+  function frame(now) {
+    if (stopped) return;
+
+    const delta = Math.min((now - lastTime) / 1000, 0.1);
+    lastTime = now;
+
+    if (!reduce) {
+      angle += rotSpeedPerSec * delta;
+      floatTick += delta * 60;
+    }
+
     const cx = w / 2;
     const floatY = reduce ? 0 : Math.sin(floatTick * 0.05) * 3;
     const cy = h / 2 + floatY;
@@ -91,42 +109,43 @@ export function initPreloader({
     const cosA = Math.cos(angle);
     const sinA = Math.sin(angle);
 
-    const rendered = points.map(p => {
-      const x1 = p.x * cosA + p.z * sinA;
-      const z1 = -p.x * sinA + p.z * cosA;
-      return { x1, y1: p.y, z1 };
-    }).sort((a, b) => a.z1 - b.z1);
+    for (let i = 0; i < points.length; i++) {
+      const p = points[i];
+      const target = rendered[i];
+      target.x1 = p.x * cosA + p.z * sinA;
+      target.y1 = p.y;
+      target.z1 = -p.x * sinA + p.z * cosA;
+    }
+
+    rendered.sort((a, b) => a.z1 - b.z1);
 
     for (let i = 0; i < rendered.length; i++) {
       const p = rendered[i];
-      const depth = Math.max(0, Math.min(1, (p.z1 + maxExtent) / (2 * maxExtent)));
-
+      const depth = Math.max(0, Math.min(1, (p.z1 + maxExtent) * invDiameter));
       const sx = cx + p.x1 * scale;
       const sy = cy + p.y1 * scale;
-
       const radius = baseDotRadius + depth * (maxDotRadius - baseDotRadius);
       const alpha = 0.2 + depth * 0.8;
 
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-
       if (depth > 0.6) {
-        ctx.shadowColor = `rgba(${dotRgb}, ${0.5 * depth})`;
-        ctx.shadowBlur = 6 * depth;
+        ctx.beginPath();
+        ctx.arc(sx, sy, radius + 2.5 * depth, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${dotRgb}, ${0.12 * depth})`;
+        ctx.fill();
       }
 
+      ctx.beginPath();
+      ctx.arc(sx, sy, radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${dotRgb}, ${alpha})`;
       ctx.fill();
-      ctx.restore();
     }
 
-    angle += speed;
-    floatTick += 1;
-
-    if (!stopped && !reduce) requestAnimationFrame(frame);
+    if (!reduce) {
+      rafId = requestAnimationFrame(frame);
+    }
   }
-  frame();
+
+  rafId = requestAnimationFrame(frame);
 
   if (document.readyState === 'complete') finish();
   else window.addEventListener('load', finish, { once: true });
